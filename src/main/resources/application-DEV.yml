@@ -1,0 +1,33 @@
+app:
+  logging:
+    path: C:/Users/giris/logs/
+
+spring:
+ datasource:
+  url: jdbc:h2:mem:testdb;
+  driverClassName: org.h2.Driver
+  username: sa
+  password:
+ jpa:
+  database-platform: org.hibernate.dialect.H2Dialect
+  show-sql: true    
+ profiles:
+    active: DEV
+    
+log4j:
+  logger:
+    org:
+      hibernate:
+        engine:
+          jdbc:
+            spi:
+              SqlExceptionHelper: 'ERROR'
+
+logging:
+  level:
+    com:
+      cga:
+        microservice: INFO
+    org:
+      hibernate: INFO
+      springframework: INFO
